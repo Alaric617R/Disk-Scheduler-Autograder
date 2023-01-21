@@ -30,7 +30,7 @@
   ```
 It will be very handy to show this kinda messages just add `-DDEBUG` flag when you're compiling your disk scheduler. In general, as long as you've avoided busy waiting you CPU time will be fine. Think carefully how `cv` and `mutex` is going to help you.
 + ### Usage
-Before doing anything, make sure this `Makefile`, `autograder.cpp` and `genTest.cpp` are along with your disk scheduler executable. **MAKE SURE YOUR EXECUTABLE IS NAMED AS `scheduler`**. Or Alaric has to add a new prompt for whenever you're trying to use the autograder you have to retype your name (sounds cumbersome). It's encourage you integrate your own Makefile with Alaric's autograder Makefile so that you won't have to worry about multiple makefiles. Dump them (with your executable named `scheduler`) to another subdirectory is also gonna work. You might first need to generate some test files using `make genTest`. If you use your own test files, please put them into a subdirectory folder named **EXACTLY** as `testN` where `N` is an integer, leave no white space there.
+Before doing anything, make sure this `Makefile`, `autograder.cpp` and `genTest.cpp` are along with your disk scheduler executable. **MAKE SURE YOUR EXECUTABLE IS NAMED AS `scheduler`**. Or Alaric has to add a new prompt for whenever you're trying to use the autograder you have to retype the name of your executable(sounds cumbersome). It's encouraged you integrate your own Makefile with Alaric's autograder Makefile so that you won't have to worry about multiple makefiles. Dump them (with your executable named `scheduler`) to another subdirectory is also gonna work. You might first need to generate some test files using `make genTest`. If you use your own test files, please put them into a subdirectory folder named **EXACTLY** as `testN` where `N` is an integer, leaving no white space there.
 ### Testing has two steps:
 1. Run your `scheduler` and redirect output (default to *my_result.txt*) to a test folder you've specified.
 ```make
@@ -60,7 +60,7 @@ enter number of disk requests: 10
 
 > You always **stay in the same directory as this Makefile**. The file redirection and hierachy are done within the `make` command.
 
->In case you want to run the autograder alone without the help of this Makefile, run it as follows:
+>In case you want to run the autograder alone without the help of this Makefile, do it as follows:
 ```bash
  ./autograder max_disk_queue N my_result.txt disk.in0 disk.in1... disk.inN
  # N is number of disk files you've input to your scheduler
