@@ -16,6 +16,7 @@
   + A test sequence number `k`. This is a control number of your testcases generated at this term. All of them are confined to the directory `test${k}`.
   + The number of disk requests `N`, from `disk.in0` to `disk.in${N}`. They can be found in directory `test${k}`.
   + The maximum number of track requests a requester thread can issue `M`. This parameter will make sure your requester files will contain disk requests in $[1,M]$ randomly.
+  >I've already include three test folders. `test1` is light-weight with only 10 files and `test3` is workload-intensive with 100 requester threads each could issue at most 260 requests. You may start from `test1`, then to middle one `test2`. After succeeding those two, drain your scheduler on `test3`.
 
 
 ## Part Two - Autograder
