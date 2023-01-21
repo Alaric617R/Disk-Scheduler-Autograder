@@ -1,0 +1,6 @@
+scheduler
+*.dSYM
+autograder
+genTest
+*.vscode
+*.DS_Store
