@@ -7,13 +7,15 @@ __PER_THREAD_REQUEST_MAX ?= $(shell bash -c 'read -p "enter maximum request a th
 __NUM_DISK_REQUEST ?= $(shell bash -c 'read -p "enter number of disk requests: " dir; echo $$dir')
 ONE := 1
 N = $(shell echo ${NUM_DISK_REQUEST} - ${ONE} | bc)
-##__DISK_INS = $(shell cd test$(TEST_SEQ); find . -name "*.in*")
 NUMBERS = $(shell seq 0 ${N})
 DISK_INS = $(NUMBERS:%=disk.in%)
 DIRNAME = intensive_test_
 __MAX_QUEUE_CAP = $(shell bash -c 'read -p "enter maximum disk queue capacity: " cap; echo $$cap')
 MAX_QUEUE_CAP = $(__MAX_QUEUE_CAP)
-__YOUR_TEST_FILE_NAME ?= $(shell bash -c 'read -p "What is the name of your output file? " cap; echo $$cap')
+#################### You can rename your output .txt as you like here ####################
+YOUR_TEST_FILE_NAME = my_result.txt
+#################### You can rename your output .txt as you like here ####################
+
 
 #################### You can add your own recipes below ####################
 
@@ -24,7 +26,7 @@ __YOUR_TEST_FILE_NAME ?= $(shell bash -c 'read -p "What is the name of your outp
 
 
 
-#################### Don't touch anything below if you want everything to work as said ####################
+#################### Don't touch anything below if you want everything to work as designed ####################
 .PHONY: genTest autograder grade
 .ONESHELL:
 genTest: genTest.cpp
@@ -43,17 +45,16 @@ grade: autograder
 	$(eval TEST_SEQ=${__TEST_SEQ})
 	$(eval MAX_QUEUE_CAP=${__MAX_QUEUE_CAP})
 	$(eval NUM_DISK_REQUEST=${__NUM_DISK_REQUEST})
-	$(eval YOUR_TEST_FILE_NAME=${__YOUR_TEST_FILE_NAME})
 	cp autograder test$(TEST_SEQ)
 	cd test$(TEST_SEQ); \
 	./autograder $(MAX_QUEUE_CAP) $(NUM_DISK_REQUEST) ${YOUR_TEST_FILE_NAME} $(DISK_INS)
 
-.PHONY: intensive_test
-intensive_test: scheduler
+.PHONY: test
+test: scheduler
 #	mkdir -p $(DIRNAME)$(TEST_TAG)
 	$(eval TEST_SEQ=${__TEST_SEQ})
-	$(eval MAX_QUEUE_CAP=${__MAX_QUEUE_CAP})
-	$(eval YOUR_TEST_FILE_NAME={__YOUR_TEST_FILE_NAME})
+	$(eval MAX_QUEUE_CAP=${__MAX_QUEUE_CAP})\
+	$(eval NUM_DISK_REQUEST=${__NUM_DISK_REQUEST})
 	rm -f test$(TEST_SEQ)/scheduler
 	cp scheduler test$(TEST_SEQ)
 	cd test$(TEST_SEQ); \

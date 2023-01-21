@@ -29,10 +29,48 @@
   ```
 It will be very handy to show this kinda messages just add `-DDEBUG` flag when you're compiling your disk scheduler. In general, as long as you've avoided busy waiting you CPU time will be fine. Think carefully how `cv` and `mutex` is going to help you.
 + ### Usage
-Before doing anything, make sure this `Makefile`, `autograder.cpp` and `genTest.cpp` are along with your disk scheduler executable. **MAKE SURE YOUR EXECUTABLE IS NAMED AS `scheduler`**. Or Alaric has to add a new prompt for whenever you're trying to use the autograder you have to retype your name (sounds cumbersome). It's encourage you integrate your own Makefile with Alaric's autograder Makefile so that you won't have to worry about multiple makefiles. Dump them (with your executable named `scheduler`) to another subdirectory is also gonna work.
-+ To build the `autograder`, simply type the following in your terminal:
+Before doing anything, make sure this `Makefile`, `autograder.cpp` and `genTest.cpp` are along with your disk scheduler executable. **MAKE SURE YOUR EXECUTABLE IS NAMED AS `scheduler`**. Or Alaric has to add a new prompt for whenever you're trying to use the autograder you have to retype your name (sounds cumbersome). It's encourage you integrate your own Makefile with Alaric's autograder Makefile so that you won't have to worry about multiple makefiles. Dump them (with your executable named `scheduler`) to another subdirectory is also gonna work. You might first need to generate some test files using `make genTest`. If you use your own test files, please put them into a subdirectory folder named **EXACTLY** as `testN` where `N` is an integer, leave no white space there.
+### Testing has two steps:
+1. Run your `scheduler` and redirect output (default to *my_result.txt*) to a test folder you've specified.
 ```make
-make autograder
+make test
+### The following prompts will appear after you type `make test`. The answers to the prompt is an example.
+enter test seq (integer): 1 # choose test1 folder
+enter maximum disk queue capacity: 3 # as you like
+enter number of disk requests: 10 # must be 10 since test1 only contains 10 disk files
 ```
+You will find your run result inside `test1/my_result.txt`, using the above example.
+> Just like Part one, the prompts specifies how to pass arguments to your disk scheduler. *Remember the test sequence number, you gonna will it when you run autograder on your my_result.txt*
 
+**Note:** The number of disk requests must be **EXACTLY** the same as the number of `disk.in#` file in `test#` folder. So you might need to do a little counting in that testcase folder where you're going to run your `scheduler` on. It's meant to generate a long, tedious array of *disk.in0 disk.in1 ... disk.inN* to feed your program.
 
+2. Run autograder on your generated result using a single command of GNU make (yyds!). We proceed the example in step 1
+```make
+make grade
+## The following prompts will appear after you type `make grade`. The answers to the prompt is an continuation of example in step 1.
+enter test seq (integer): 1 
+# must be 1, b/c your output is in test1/my_result.txt
+enter maximum disk queue capacity: 3
+# must be 3, b/c you choose this number to run your scheduler. The autograder should know under what condition you've run your scheduler.
+enter number of disk requests: 10
+# must be 10, since test1 folder only contains 10 disk files
+```
+> Step 1 and step 2 is hugely coupled. You must remember the parameters when running your scheduler and tell the autograder the same amount of information. Otherwise, the grading process will yield buggy result and mislead your debug process :(
+
+> You always **stay in the same directory as this Makefile**. The file redirection and hierachy are done within the `make` command.
+
+>In case you want to run the autograder alone without the help of this Makefile, run it as follows:
+```bash
+ ./autograder max_disk_queue N my_result.txt disk.in0 disk.in1... disk.inN
+ # N is number of disk files you've input to your scheduler
+```
+After running `make test` and `make grade`, you will be able to find the outcome in your terminal. You can also open up your run result in the test folder you specified.
+
+## Maintenance
+This autograder is written by Alaric when he is enslaved working on this project. It helped him expose all the bugs and Alaric thinks it will be a good idea to share this with all hardworking EECS students.
+
+>If there are any bugs, typos, suggestions, etc. Please reach out through my Instagram `alaricieiuxcs`.
+
+---
+## Wish you good luck!
+by Alaric Chen 21 Jan 2023
