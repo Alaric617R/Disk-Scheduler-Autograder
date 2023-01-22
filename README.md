@@ -1,7 +1,7 @@
 # EECS 482 P1 Disk Scheduler Autograder
 ## Part 1 - Test case generator
 + ### Intro:
-  The source file of generating testcases is contained in `genTest.cpp`. Please do not modify the names of the macros or it won't connect with the simplity of `Makefile`. Alaric is trying his best to offer a simple interface to using this little testcase generator (you can write one too! But it's like a pesky bee)
+  The source file of generating testcases is contained in `genTest.cpp`. Please do not modify the names of the macros or it won't connect with the simplicity of `Makefile`. Alaric is trying his best to offer a simple interface to using this little testcase generator (you can write one too! But it's like a pesky bee)
 + ### Usage:
 ```make
     make genTest
@@ -49,7 +49,7 @@ You will find your run result inside `test1/my_result.txt`, using the above exam
 ```make
 make grade
 ## The following prompts will appear after you type `make grade`. The answers to the prompt is an continuation of example in step 1.
-enter test seq (integer): 1 
+enter test seq (integer): 1
 # must be 1, b/c your output is in test1/my_result.txt
 enter maximum disk queue capacity: 3
 # must be 3, b/c you choose this number to run your scheduler. The autograder should know under what condition you've run your scheduler.
