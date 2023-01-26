@@ -4,3 +4,6 @@ autograder
 genTest
 *.vscode
 *.DS_Store
+*.txt
+*.in*
+test

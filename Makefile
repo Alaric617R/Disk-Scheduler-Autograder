@@ -1,6 +1,9 @@
 
 
 
+.PHONY: clean
+clean:
+	rm -rf autograder scheduler
 #################### You can start your variable definition above ####################
 __TEST_SEQ ?= $(shell bash -c 'read -p "enter test seq (integer): " dir; echo $$dir')
 __PER_THREAD_REQUEST_MAX ?= $(shell bash -c 'read -p "enter maximum request a thread can issue: " dir; echo $$dir')
