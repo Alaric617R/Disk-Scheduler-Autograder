@@ -1,4 +1,4 @@
-#  Disk Schedule Project Autograder
+#  Disk Scheduler Project Autograder
 ## Part 1 - Test case generator
 + ### Intro:
   The source file of generating testcases is contained in `genTest.cpp`. Please do not modify the names of the macros or it won't connect with the simplicity of `Makefile`. Alaric is trying his best to offer a simple interface to using this little testcase generator (you can write one too! But it's like a pesky bee)
