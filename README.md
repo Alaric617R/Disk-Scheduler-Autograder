@@ -1,4 +1,4 @@
-# EECS 482 P1 Disk Scheduler Autograder
+#  Disk Schedule Project Autograder
 ## Part 1 - Test case generator
 + ### Intro:
   The source file of generating testcases is contained in `genTest.cpp`. Please do not modify the names of the macros or it won't connect with the simplicity of `Makefile`. Alaric is trying his best to offer a simple interface to using this little testcase generator (you can write one too! But it's like a pesky bee)
@@ -68,7 +68,7 @@ enter number of disk requests: 10
 After running `make test` and `make grade`, you will be able to find the outcome in your terminal. You can also open up your run result in the test folder you specified.
 
 ## Maintenance
-This autograder is written by Alaric when he is enslaved working on this project. It helped him expose all the bugs and Alaric thinks it will be a good idea to share this with all hardworking EECS students.
+This autograder is written by Alaric when he is enslaved working on this project. It helped him expose all the bugs and Alaric thinks it will be a good idea to share this with all hardworking  students learning concurrent programming.
 
 >If there are any bugs, typos, suggestions, etc. Please reach out through my Instagram `alaricieiuxcs`.
 
